@@ -27,13 +27,9 @@ Demo made by [Visionn](https://www.wangpc.cc/)
 <img width="240" src="./docs/images/contact.jpg">
 
 # 更新日志
-<<<<<<< HEAD
 >**2023.09.05：** 接入 [DifyAI](https://dify.ai/) 平台。
 
->**2023.09.01：** 接入讯飞星火，claude机器人
-=======
 >**2023.09.01：** 增加 [企微个人号](#1385) 通道，[claude](1388)，讯飞星火模型
->>>>>>> 54f60dd38cfeaa6cd3354fe578ef2380c5ca51e1
 
 >**2023.08.08：** 接入百度文心一言模型，通过 [插件](https://github.com/zhayujie/chatgpt-on-wechat/tree/master/plugins/linkai) 支持 Midjourney 绘图
 

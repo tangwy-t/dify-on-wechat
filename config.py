@@ -129,7 +129,6 @@ available_setting = {
     # 知识库平台2配置
     "use_difyai": False,
     "difyai_api_key": "",
-    "difyai_app_code": "",
     "difyai_api_base": "https://api.dify.ai",  # difyAI服务地址
 }
 

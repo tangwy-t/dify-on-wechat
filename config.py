@@ -44,7 +44,7 @@ available_setting = {
     # chatgpt限流配置
     "rate_limit_chatgpt": 20,  # chatgpt的调用频率限制
     "rate_limit_dalle": 50,  # openai dalle的调用频率限制
-    # chatgpt api参数 参考https://platform.openai.com/docs/api-reference/chat/create
+    # chatgpt api参数 参考 https://platform.openai.com/docs/api-reference/chat/create
     "temperature": 0.9,
     "top_p": 1,
     "frequency_penalty": 0,
@@ -121,11 +121,16 @@ available_setting = {
     "plugin_trigger_prefix": "$",  # 规范插件提供聊天相关指令的前缀，建议不要和管理员指令前缀"#"冲突
     # 是否使用全局插件配置
     "use_global_plugin_config": False,
-    # 知识库平台配置
+    # 知识库平台1配置
     "use_linkai": False,
     "linkai_api_key": "",
     "linkai_app_code": "",
     "linkai_api_base": "https://api.link-ai.chat",  # linkAI服务地址，若国内无法访问或延迟较高可改为 https://api.link-ai.tech
+    # 知识库平台2配置
+    "use_difyai": False,
+    "difyai_api_key": "",
+    "difyai_app_code": "",
+    "difyai_api_base": "https://api.dify.ai",  # difyAI服务地址
 }
 
 

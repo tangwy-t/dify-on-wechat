@@ -5,6 +5,7 @@ BAIDU = "baidu"
 XUNFEI = "xunfei"
 CHATGPTONAZURE = "chatGPTOnAzure"
 LINKAI = "linkai"
+DIFYAI = "difyai"
 
 VERSION = "1.3.0"
 

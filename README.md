@@ -1,6 +1,6 @@
 # 简介
 
-> ChatGPT近期以强大的对话和信息整合能力风靡全网，可以写代码、改论文、讲故事，几乎无所不能，这让人不禁有个大胆的想法，能否用他的对话模型把我们的微信打造成一个智能机器人，可以在与好友对话中给出意想不到的回应，而且再也不用担心女朋友影响我们 ~~打游戏~~ 工作了。
+> ChatGPT近期以强大的对话和信息整合能力风靡全网，可以写代码、改论文、讲故事，几乎无所不能，这让人不禁有个大胆的想法，能否用他的对话模型把我们的微信打造成一个智能机器人，可以在与好友对话中给出意想不到的回应。
 
 最新版本支持的功能如下：
 
@@ -10,7 +10,7 @@
 - [x] **图片生成：** 支持图片生成 和 图生图（如照片修复），可选择 Dell-E, stable diffusion, replicate, midjourney模型
 - [x] **丰富插件：** 支持个性化插件扩展，已实现多角色切换、文字冒险、敏感词过滤、聊天记录总结等插件
 - [X] **Tool工具：** 与操作系统和互联网交互，支持最新信息搜索、数学计算、天气和资讯查询、网页总结，基于 [chatgpt-tool-hub](https://github.com/goldfishh/chatgpt-tool-hub) 实现
-- [x] **知识库：** 通过上传知识库文件自定义专属机器人，可作为数字分身、领域知识库、智能客服使用，基于 [LinkAI](https://chat.link-ai.tech/console) 实现
+- [x] **知识库：** 通过上传知识库文件自定义专属机器人，可作为数字分身、领域知识库、智能客服使用，基于 [LinkAI](https://chat.link-ai.tech/console) 和[DifyAI](https://dify.ai/) 实现
 
 > 欢迎接入更多应用，参考 [Terminal代码](https://github.com/zhayujie/chatgpt-on-wechat/blob/master/channel/terminal/terminal_channel.py)实现接收和发送消息逻辑即可接入。 同时欢迎增加新的插件，参考 [插件说明文档](https://github.com/zhayujie/chatgpt-on-wechat/tree/master/plugins)。
 
@@ -27,6 +27,8 @@ Demo made by [Visionn](https://www.wangpc.cc/)
 <img width="240" src="./docs/images/contact.jpg">
 
 # 更新日志
+>**2023.09.05：** 接入 [DifyAI](https://dify.ai/) 平台。
+
 >**2023.09.01：** 接入讯飞星火，claude机器人
 
 >**2023.08.08：** 接入百度文心一言模型，通过 [插件](https://github.com/zhayujie/chatgpt-on-wechat/tree/master/plugins/linkai) 支持 Midjourney 绘图
@@ -178,8 +180,8 @@ pip3 install azure-cognitiveservices-speech
 
 **6.wenxin配置 (可选 model 为 wenxin 时生效)**
 
-+ `baidu_wenxin_api_key`: 文心一言官网api key。
-+ `baidu_wenxin_secret_key`: 文心一言官网secret key。
++ `baidu_wenxin_api_key`: 在千帆大模型平台上配置的api key。
++ `baidu_wenxin_secret_key`: 在千帆大模型平台上配置的secret key。
 
 
 **6.Claude配置 (可选 model 为 claude 时生效)**

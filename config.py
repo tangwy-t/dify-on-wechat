@@ -208,6 +208,7 @@ def load_config():
     # Some online deployment platforms (e.g. Railway) deploy project from github directly. So you shouldn't put your secrets like api key in a config file, instead use environment variables to override the default config.
     for name, value in os.environ.items():
         name = name.lower()
+        logger.info("[INIT] processing environ args: {}={}".format(name, value))
         if name in available_setting:
             logger.info("[INIT] override config by environ args: {}={}".format(name, value))
             try:

@@ -129,6 +129,7 @@ available_setting = {
     # 知识库平台2配置
     "use_difyai": False,
     "difyai_api_key": "",
+    "difyai_api_code": "",
     "difyai_api_base": "https://api.dify.ai",  # difyAI服务地址
 }
 
@@ -218,6 +219,8 @@ def load_config():
                     config[name] = True
                 else:
                     config[name] = value
+        else:
+            logger.info("[INIT] the environ args is NOT used: {}={}".format(name, value))
 
     if config.get("debug", False):
         logger.setLevel(logging.DEBUG)

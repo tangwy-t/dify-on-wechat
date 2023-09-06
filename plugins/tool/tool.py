@@ -55,6 +55,7 @@ class Tool(Plugin):
             const.OPEN_AI,
             const.CHATGPTONAZURE,
             const.LINKAI,
+            const.DIFYAI
         ):
             return
 

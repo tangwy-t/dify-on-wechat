@@ -6,21 +6,21 @@
 $tool 命令: 根据给出的{命令}使用一些可用工具尽力为你得到结果。  
 $tool reset: 重置工具。  
 ```
-### 本插件所有工具同步存放至专用仓库：[chatgpt-tool-hub](https://github.com/goldfishh/chatgpt-tool-hub)
 
+* 本插件所有工具同步存放至专用仓库：[chatgpt-tool-hub](https://github.com/goldfishh/chatgpt-tool-hub)
 
 ## 使用说明
 使用该插件后将默认使用4个工具, 无需额外配置长期生效：
 ### 1. python
-###### python解释器，使用它来解释执行python指令，可以配合你想要chatgpt生成的代码输出结果或执行事务
+* python解释器，使用它来解释执行python指令，可以配合你想要chatgpt生成的代码输出结果或执行事务
 
 ### 2. 访问网页的工具汇总(默认url-get)
 
 #### 2.1 url-get
-###### 往往用来获取某个网站具体内容，结果可能会被反爬策略影响
+* 往往用来获取某个网站具体内容，结果可能会被反爬策略影响
 
 #### 2.2 browser
-###### 浏览器，功能与2.1类似，但能更好模拟，不会被识别为爬虫影响获取网站内容
+* 浏览器，功能与2.1类似，但能更好模拟，不会被识别为爬虫影响获取网站内容
 
 > 注1：url-get默认配置、browser需额外配置，browser依赖google-chrome，你需要提前安装好
 
@@ -30,12 +30,12 @@ $tool reset: 重置工具。
 > https://www.linuxjournal.com/content/how-can-you-install-google-browser-debian
 
 ### 3. terminal
-###### 在你运行的电脑里执行shell命令，可以配合你想要chatgpt生成的代码使用，给予自然语言控制手段
+* 在你运行的电脑里执行shell命令，可以配合你想要chatgpt生成的代码使用，给予自然语言控制手段
 
 > terminal调优记录：https://github.com/zhayujie/chatgpt-on-wechat/issues/776#issue-1659347640
 
 ### 4. meteo-weather
-###### 回答你有关天气的询问, 需要获取时间、地点上下文信息，本工具使用了[meteo open api](https://open-meteo.com/)
+* 回答你有关天气的询问, 需要获取时间、地点上下文信息，本工具使用了[meteo open api](https://open-meteo.com/)
 注：该工具需要较高的对话技巧，不保证你问的任何问题均能得到满意的回复
 
 > meteo调优记录：https://github.com/zhayujie/chatgpt-on-wechat/issues/776#issuecomment-1500771334
@@ -53,17 +53,17 @@ $tool reset: 重置工具。
 ## 其他工具
 
 ### 5. wikipedia
-###### 可以回答你想要知道确切的人事物
+可以回答你想要知道确切的人事物
 
 ### 6. news 新闻类工具集合
 
 > news更新：0.4版本对新闻类工具做了整合，配置文件只要加入`news`一个工具名就会自动加载所有新闻类工具
 
 #### 6.1. news-api *
-###### 从全球 80,000 多个信息源中获取当前和历史新闻文章
+* 从全球 80,000 多个信息源中获取当前和历史新闻文章
 
 #### 6.2. morning-news *
-###### 每日60秒早报，每天凌晨一点更新，本工具使用了[alapi-每日60秒早报](https://alapi.cn/api/view/93)
+* 每日60秒早报，每天凌晨一点更新，本工具使用了[alapi-每日60秒早报](https://alapi.cn/api/view/93)
 
 ```text
 可配置参数：
@@ -73,23 +73,21 @@ $tool reset: 重置工具。
 > 该tool每天返回内容相同
 
 #### 6.3. finance-news
-###### 获取实时的金融财政新闻
+* 获取实时的金融财政新闻
 
 > 该工具需要解决browser tool 的google-chrome依赖安装
 
-
-
 ### 7. bing-search *
-###### bing搜索引擎，从此你不用再烦恼搜索要用哪些关键词
+* bing搜索引擎，从此你不用再烦恼搜索要用哪些关键词
 
 ### 8. wolfram-alpha *
-###### 知识搜索引擎、科学问答系统，常用于专业学科计算
+* 知识搜索引擎、科学问答系统，常用于专业学科计算
 
 ### 9. google-search *
-###### google搜索引擎，申请流程较bing-search繁琐
+* google搜索引擎，申请流程较bing-search繁琐
 
 ### 10. arxiv
-###### 用于查找论文
+* 用于查找论文
 
 ```text
 可配置参数：
@@ -99,15 +97,15 @@ $tool reset: 重置工具。
 > 0.4.2更新，例子：帮我找一篇吴恩达写的论文
 
 ### 11. summary
-###### 总结工具，该工具必须输入一个本地文件的绝对路径
+* 总结工具，该工具必须输入一个本地文件的绝对路径
 
 > 该工具目前是和其他工具配合使用，暂未测试单独使用效果
 
 ### 12. image2text
-###### 将图片转换成文字，底层调用imageCaption模型，该工具必须输入一个本地文件的绝对路径
+* 将图片转换成文字，底层调用imageCaption模型，该工具必须输入一个本地文件的绝对路径
 
 ### 13. searxng-search *
-###### 一个私有化的搜索引擎工具
+* 一个私有化的搜索引擎工具
 
 > 安装教程：https://docs.searxng.org/admin/installation.html
 

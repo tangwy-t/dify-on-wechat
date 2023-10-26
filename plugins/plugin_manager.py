@@ -145,7 +145,7 @@ class PluginManager:
                     try:
                         instance = plugincls()
                     except Exception as e:
-                        logger.warn("Failed to init %s, diabled. %s" % (name, e))
+                        logger.warn("Failed to init %s, disabled. %s" % (name, e))
                         self.disable_plugin(name)
                         failed_plugins.append(name)
                         continue
@@ -268,6 +268,7 @@ class PluginManager:
                 logger.error("Failed to install plugin, {}".format(e))
                 return False, "安装插件失败，请检查仓库地址是否正确"
         dirname = os.path.join("./plugins", match.group(4))
+        print("dirname:", dirname)
         try:
             repo = porcelain.clone(repo, dirname, checkout=True)
             if os.path.exists(os.path.join(dirname, "requirements.txt")):

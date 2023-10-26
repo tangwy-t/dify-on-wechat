@@ -1,6 +1,9 @@
 ## 插件描述
-一个能让chatgpt联网，搜索，数字运算的插件，将赋予强大且丰富的扩展能力   
-使用说明(默认trigger_prefix为$)：  
+* 一个能让chatgpt联网，搜索，数字运算的插件，将赋予强大且丰富的扩展能力   
+
+## 使用说明
+* 默认trigger_prefix为$  
+
 ```text
 #help tool: 查看tool帮助信息，可查看已加载工具列表  
 $tool 命令: 根据给出的{命令}使用一些可用工具尽力为你得到结果。  
@@ -10,29 +13,6 @@ $tool reset: 重置工具。
 * 本插件所有工具同步存放至专用仓库：[chatgpt-tool-hub](https://github.com/goldfishh/chatgpt-tool-hub)
 
 ## 使用说明
-使用该插件后将默认使用4个工具, 无需额外配置长期生效：
-### 1. python
-* python解释器，使用它来解释执行python指令，可以配合你想要chatgpt生成的代码输出结果或执行事务
-
-### 2. 访问网页的工具汇总(默认url-get)
-
-#### 2.1 url-get
-* 往往用来获取某个网站具体内容，结果可能会被反爬策略影响
-
-#### 2.2 browser
-* 浏览器，功能与2.1类似，但能更好模拟，不会被识别为爬虫影响获取网站内容
-
-> 注1：url-get默认配置、browser需额外配置，browser依赖google-chrome，你需要提前安装好
-
-> 注2：当检测到长文本时会进入summary tool总结长文本，tokens可能会大量消耗！
-
-这是debian端安装google-chrome教程，其他系统请自行查找
-> https://www.linuxjournal.com/content/how-can-you-install-google-browser-debian
-
-### 3. terminal
-* 在你运行的电脑里执行shell命令，可以配合你想要chatgpt生成的代码使用，给予自然语言控制手段
-
-> terminal调优记录：https://github.com/zhayujie/chatgpt-on-wechat/issues/776#issue-1659347640
 
 ### 4. meteo-weather
 * 回答你有关天气的询问, 需要获取时间、地点上下文信息，本工具使用了[meteo open api](https://open-meteo.com/)
@@ -57,8 +37,6 @@ $tool reset: 重置工具。
 
 ### 6. news 新闻类工具集合
 
-> news更新：0.4版本对新闻类工具做了整合，配置文件只要加入`news`一个工具名就会自动加载所有新闻类工具
-
 #### 6.1. news-api *
 * 从全球 80,000 多个信息源中获取当前和历史新闻文章
 
@@ -69,8 +47,6 @@ $tool reset: 重置工具。
 可配置参数：
 1. morning_news_use_llm: 是否使用LLM润色结果，默认false（可能会慢）
 ```
-
-> 该tool每天返回内容相同
 
 #### 6.3. finance-news
 * 获取实时的金融财政新闻
@@ -124,7 +100,7 @@ $tool reset: 重置工具。
       "request_timeout": 120,  // openai接口超时时间
       "no_default": false,  // 是否不使用默认的4个工具
       "bing_subscription_key": "4871f273a4804743",//带*工具需要申请api-key，这里填入了工具bing-search对应的api，api_name参考前述`工具的api申请方法`
-      "morning_news_api_key": "5w1kjNh9VQlUc",// 这里填入了morning-news对应的api，
+      "morning_news_api_key": "5w1kjNh9VQlUc",// 这里填入morning-news对应的api
   }
 }
 

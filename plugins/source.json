@@ -15,6 +15,10 @@
     "timetask": {
       "url": "https://github.com/haikerapples/timetask.git",
       "desc": "一款定时任务系统的插件"
+    },
+    "fashion": {
+      "url": "https://github.com/weijiang2009/plugin_fashion.git",
+      "desc": "一款AI原优舍为你量身定制的个人时尚管家"
     }
   }
 }

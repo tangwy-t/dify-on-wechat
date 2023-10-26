@@ -16,9 +16,9 @@ from plugins import *
 
 @plugins.register(
     name="tool",
-    desc="Arming your ChatGPT bot with various tools",
-    version="0.4",
-    author="goldfishh",
+    desc="Arming your llm bot with various tools",
+    version="0.5",
+    author="weijiang2009",
     desire_priority=0,
 )
 class Tool(Plugin):
@@ -31,7 +31,7 @@ class Tool(Plugin):
         logger.info("[tool] inited")
 
     def get_help_text(self, verbose=False, **kwargs):
-        help_text = "这是一个能让chatgpt联网，搜索，数字运算的插件，将赋予强大且丰富的扩展能力。"
+        help_text = "这是一个能让大语言模型联网，搜索，数字运算的插件，赋予大模型强大的扩展能力。"
         trigger_prefix = conf().get("plugin_trigger_prefix", "$")
         if not verbose:
             return help_text

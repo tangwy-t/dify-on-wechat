@@ -13,8 +13,8 @@ from plugins import *
     desire_priority=-999,
     hidden=True,
     desc="A plugin that check unknown command",
-    version="1.0",
-    author="js00000",
+    version="1.0.1",
+    author="algmon",
 )
 class Finish(Plugin):
     def __init__(self):

@@ -10,11 +10,12 @@ from common import const
 import os
 from .utils import Util
 
+
 @plugins.register(
     name="linkai",
-    desc="A plugin that supports knowledge base and midjourney drawing.",
-    version="0.1.0",
-    author="https://link-ai.tech",
+    desc="A plugin that supports knowledge base, midjourney drawing and summary.",
+    version="0.1.1",
+    author="algmon",
     desire_priority=99
 )
 class LinkAI(Plugin):
@@ -31,7 +32,6 @@ class LinkAI(Plugin):
         if self.config:
             self.sum_config = self.config.get("summary")
         logger.info(f"[LinkAI] inited, config={self.config}")
-
 
     def on_handle_context(self, e_context: EventContext):
         """
@@ -112,11 +112,9 @@ class LinkAI(Plugin):
             e_context.action = EventAction.BREAK_PASS
             return
 
-
         if self._is_chat_task(e_context):
             # 文本对话任务处理
             self._process_chat_task(e_context)
-
 
     # 插件管理功能
     def _process_admin_cmd(self, e_context: EventContext):
@@ -265,15 +263,19 @@ def _set_reply_text(content: str, e_context: EventContext, level: ReplyType = Re
     e_context["reply"] = reply
     e_context.action = EventAction.BREAK_PASS
 
+
 def _get_trigger_prefix():
     return conf().get("plugin_trigger_prefix", "$")
 
+
 def _find_sum_id(context):
     return USER_FILE_MAP.get(_find_user_id(context) + "-sum_id")
+
 
 def _find_file_id(context):
     user_id = _find_user_id(context)
     if user_id:
         return USER_FILE_MAP.get(user_id + "-file_id")
+
 
 USER_FILE_MAP = ExpiredDict(conf().get("expires_in_seconds") or 60 * 30)

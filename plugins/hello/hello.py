@@ -13,9 +13,9 @@ from config import conf
     name="Hello",
     desire_priority=-1,
     hidden=True,
-    desc="A simple plugin that says hello",
-    version="0.1",
-    author="lanvent",
+    desc="A simple plugin that says hello to new user in the group",
+    version="0.1.1",
+    author="algmon",
 )
 class Hello(Plugin):
     def __init__(self):

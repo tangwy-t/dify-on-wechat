@@ -175,8 +175,8 @@ def get_help_text(isadmin, isgroup):
     desire_priority=999,
     hidden=True,
     desc="为你的机器人添加指令集，有用户和管理员两种角色，加载顺序请放在首位，初次运行后插件目录会生成配置文件, 填充管理员密码后即可认证",
-    version="1.0",
-    author="lanvent",
+    version="1.0.1",
+    author="algmon",
 )
 class Godcmd(Plugin):
     def __init__(self):
@@ -460,7 +460,6 @@ class Godcmd(Plugin):
 
     def get_help_text(self, isadmin=False, isgroup=False, **kwargs):
         return get_help_text(isadmin, isgroup)
-
 
     def is_admin_in_group(self, context):
         if context["isgroup"]:

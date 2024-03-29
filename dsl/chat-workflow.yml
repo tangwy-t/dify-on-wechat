@@ -32,6 +32,7 @@ workflow:
         sourceType: start
         targetType: llm
       id: 1711722643688-1711722657998
+      selected: false
       source: '1711722643688'
       sourceHandle: source
       target: '1711722657998'
@@ -66,8 +67,10 @@ workflow:
       width: 243
     - data:
         context:
-          enabled: false
-          variable_selector: []
+          enabled: true
+          variable_selector:
+          - '1711722643688'
+          - query
         desc: ''
         model:
           completion_params:
@@ -95,7 +98,7 @@ workflow:
             give you more tips based on the quality of your reply;\nDo your best!\nUnless
             otherwise specified, please answer me in Chinese.
         - role: user
-          text: '{{query}}'
+          text: '{{#context#}}'
         selected: true
         title: LLM
         type: llm
@@ -106,17 +109,17 @@ workflow:
       height: 97
       id: '1711722657998'
       position:
-        x: 382
-        y: 299
+        x: 474.45871055713417
+        y: 304.3050079827864
       positionAbsolute:
-        x: 382
-        y: 299
-      selected: true
+        x: 474.45871055713417
+        y: 304.3050079827864
+      selected: false
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 243
     viewport:
-      x: -12
-      y: 1
-      zoom: 1
+      x: -149.61722435272554
+      y: -174.9644998042346
+      zoom: 1.3195079107728944

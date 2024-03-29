@@ -10,7 +10,7 @@ from bridge.context import ContextType, Context
 from bridge.reply import Reply, ReplyType
 from common.log import logger
 from common import const
-from config import conf, load_config
+from config import conf
 
 class DifyBot(Bot):
     def __init__(self):
@@ -66,6 +66,9 @@ class DifyBot(Bot):
     def _reply(self, query: str, session: DifySession, context: Context):
         try:
             session.count_user_message() # 限制一个conversation中消息数，防止conversation过长
+            dify_app_type = conf().get('dify_app_type', 'workflow')
+            if dify_app_type == 'workflow':
+                return self._handle_workflow(query, session)
             base_url = self._get_api_base_url()
             chat_url = f'{base_url}/chat-messages'
             headers = self._get_headers()
@@ -135,6 +138,47 @@ class DifyBot(Bot):
             error_info = f"[DIFY] Exception: {e}"
             logger.exception(error_info)
             return None, error_info
+
+    def _handle_workflow(self, query: str, session: DifySession):
+        base_url = self._get_api_base_url()
+        workflow_url = f'{base_url}/workflows/run'
+        headers = self._get_headers()
+        payload = self._get_workflow_payload(query, session)
+        response = requests.post(workflow_url, headers=headers, json=payload)
+        if response.status_code != 200:
+            error_info = f"[DIFY] response text={response.text} status_code={response.status_code}"
+            logger.warn(error_info)
+            return None, error_info
+        # {
+        #     "log_id": "djflajgkldjgd",
+        #     "task_id": "9da23599-e713-473b-982c-4328d4f5c78a",
+        #     "data": {
+        #         "id": "fdlsjfjejkghjda",
+        #         "workflow_id": "fldjaslkfjlsda",
+        #         "status": "succeeded",
+        #         "outputs": {
+        #         "text": "Nice to meet you."
+        #         },
+        #         "error": null,
+        #         "elapsed_time": 0.875,
+        #         "total_tokens": 3562,
+        #         "total_steps": 8,
+        #         "created_at": 1705407629,
+        #         "finished_at": 1727807631
+        #     }
+        # }
+        rsp_data = response.json()
+        reply = Reply(ReplyType.TEXT, rsp_data['data']['outputs']['text'])
+        return reply, None
+
+    def _get_workflow_payload(self, query, session: DifySession):
+        return {
+            'inputs': {
+                "query": query
+            },
+            "response_mode": "blocking",
+            "user": session.get_user()
+        }
 
     def _parse_sse_event(self, event_str):
         """

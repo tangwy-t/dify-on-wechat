@@ -25,7 +25,7 @@
 - [ ] **飞书** 待测试
 
 # 更新日志
-- 2024/03/29 支持dify基础的对话工作流，由于dify官网还未上线工作流，需要自行部署测试 [0.6.0-preview-workflow.1](https://github.com/langgenius/dify/releases/tag/0.6.0-preview-workflow.1)。可以导入本项目下的[dsl文件](.dsl/chat-workflow.yaml)快速创建工作流进行测试。workflow输入变量名称十分灵活，本项目约定工作流的输入变量命名为`query`，输出变量命名为`text`。(ps: 感觉工作流不太适合作为聊天机器人，现在它还没有会话的概念，需要自己管理上下文。但是它可以调用各种工具，通过http请求和外界交互，适合执行业务逻辑复杂的任务；它可以导入导出工作流dsl文件，方便分享移植。也许以后dsl文件+配置文件就可以作为本项目的一个插件。)
+- 2024/03/29 支持dify基础的对话工作流，由于dify官网还未上线工作流，需要自行部署测试 [0.6.0-preview-workflow.1](https://github.com/langgenius/dify/releases/tag/0.6.0-preview-workflow.1)。可以导入本项目下的[dsl文件](./dsl/chat-workflow.yml)快速创建工作流进行测试。workflow输入变量名称十分灵活，本项目约定工作流的输入变量命名为`query`，输出变量命名为`text`。(ps: 感觉工作流不太适合作为聊天机器人，现在它还没有会话的概念，需要自己管理上下文。但是它可以调用各种工具，通过http请求和外界交互，适合执行业务逻辑复杂的任务；它可以导入导出工作流dsl文件，方便分享移植。也许以后dsl文件+配置文件就可以作为本项目的一个插件。)
 
 # Dify on WeChat 交流群
 

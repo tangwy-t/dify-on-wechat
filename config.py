@@ -81,6 +81,10 @@ available_setting = {
     "dify_app_type": "wrokflow", # dify助手类型 chatbot/agent/workflow，默认为workflow
     "dify_agent": True, # (注意：之后会删除这个配置) dify助手类型，如果是基础助手请设置为False，智能助手请设置为True，默认为True
     "dify_convsersation_max_messages": 5, # dify目前不支持设置历史消息长度，暂时使用超过最大消息数清空会话的策略，缺点是没有滑动窗口，会突然丢失历史消息
+    # coze配置
+    "coze_api_base": "https://api.coze.cn/open_api/v2",
+    "coze_api_key": "xxx",
+    "coze_bot_id": "xxx",
     # wework的通用配置
     "wework_smart": True,  # 配置wework是否使用已登录的企业微信，False为多开
     # 语音设置

@@ -12,7 +12,7 @@
 
 ![image-2](./docs/images/image2.jpg)
 
-基本的workflow api支持
+基本的dify workflow api支持
 
 ![image-3](./docs/images/image4.jpg)
 
@@ -20,13 +20,60 @@
 
 - [x] **个人微信**
 - [x] **企业微信应用** 
-- [ ] **公众号** 待测试
+- [x] **企业服务公众号**
+- [ ] **个人订阅公众号** 待测试
 - [ ] **钉钉** 待测试
 - [ ] **飞书** 待测试
 
-# 更新日志
-- 2024/03/29 支持dify基础的对话工作流，由于dify官网还未上线工作流，需要自行部署测试 [0.6.0-preview-workflow.1](https://github.com/langgenius/dify/releases/tag/0.6.0-preview-workflow.1)。可以导入本项目下的[dsl文件](./dsl/chat-workflow.yml)快速创建工作流进行测试。workflow输入变量名称十分灵活，本项目**约定工作流的输入变量命名为`query`**，**输出变量命名为`text`**。(ps: 感觉工作流不太适合作为聊天机器人，现在它还没有会话的概念，需要自己管理上下文。但是它可以调用各种工具，通过http请求和外界交互，适合执行业务逻辑复杂的任务；它可以导入导出工作流dsl文件，方便分享移植。也许以后dsl文件+配置文件就可以作为本项目的一个插件。)
+# 最新功能
+## 1. 支持COZE API
 
+![image-5](./docs/images/image5.jpg)
+
+![image-6](./docs/images/image6.jpg)
+
+
+
+### 1.1 如何快速启动coze微信机器人
+
+- 请参照**快速开始**步骤克隆源码并安装依赖
+
+- 按照下方coze api config.json示例文件进行配置
+以下是对默认配置的说明，可根据需要进行自定义修改（**如果复制下方的示例内容，请去掉注释**）
+```bash
+# coze config.json文件内容示例
+{
+  "coze_api_base": "https://api.coze.cn/open_api/v2",  # coze base url
+  "coze_api_key": "xxx",                               # coze api key
+  "coze_bot_id": "xxx",                                # 根据url获取coze_bot_id https://www.coze.cn/space/{space_id}/bot/{bot_id}
+  "channel_type": "wx",                                # 通道类型，当前为个人微信
+  "model": "coze",                                     # 模型名称，当前对应coze平台
+  "single_chat_prefix": [""],                          # 私聊时文本需要包含该前缀才能触发机器人回复
+  "single_chat_reply_prefix": "",                      # 私聊时自动回复的前缀，用于区分真人
+  "group_chat_prefix": ["@bot"],                       # 群聊时包含该前缀则会触发机器人回复
+  "group_name_white_list": ["ALL_GROUP"]               # 机器人回复的群名称列表
+}
+```
+
+上述示例文件是个人微信对接coze的极简配置，详细配置说明需要查看config.py，注意**不要修改config.py中的值**，config.py只是校验是否是有效的key，最终**生效的配置请在config.json修改**。
+
+- 启动程序
+
+```
+python3 app.py                                    # windows环境下该命令通常为 python app.py
+```
+
+
+
+特别感谢 [**@绛烨**](https://github.com/jiangye520) 提供内测coze api key
+
+
+
+# 更新日志
+
+- 2024/04/04 支持docker部署
+- 2024/03/31 支持coze api(内测版)
+- 2024/03/29 支持dify基础的对话工作流，由于dify官网还未上线工作流，需要自行部署测试 [0.6.0-preview-workflow.1](https://github.com/langgenius/dify/releases/tag/0.6.0-preview-workflow.1)。可以导入本项目下的[dsl文件](./dsl/chat-workflow.yml)快速创建工作流进行测试。workflow输入变量名称十分灵活，本项目**约定工作流的输入变量命名为`query`**，**输出变量命名为`text`**。(ps: 感觉工作流不太适合作为聊天机器人，现在它还没有会话的概念，需要自己管理上下文。但是它可以调用各种工具，通过http请求和外界交互，适合执行业务逻辑复杂的任务；它可以导入导出工作流dsl文件，方便分享移植。也许以后dsl文件+配置文件就可以作为本项目的一个插件。)
 # Dify on WeChat 交流群
 
 添加我的微信拉你进群
@@ -84,21 +131,20 @@ pip3 install -r requirements-optional.txt # 国内可以在该命令末尾添加
 然后在`config.json`中填入配置，以下是对默认配置的说明，可根据需要进行自定义修改（**如果复制下方的示例内容，请去掉注释**）：
 
 ```bash
-# config.json文件内容示例
-{
-  "dify_api_base": "https://api.dify.ai/v1",    # dify base url
+# dify config.json文件内容示例
+{ "dify_api_base": "https://api.dify.ai/v1",    # dify base url
   "dify_api_key": "app-xxx",                    # dify api key
-  "dify_agent": true,                          # dify助手类型，如果是基础助手请设置为false，智能助手请设置为true, 当前为true
+  "dify_agent": true,                           # dify助手类型，如果是基础助手请设置为false，智能助手请设置为true, 当前为true
   "dify_convsersation_max_messages": 5,         # dify目前不支持设置历史消息长度，暂时使用超过最大消息数清空会话的策略，缺点是没有滑动窗口，会突然丢失历史消息, 当前为5
   "channel_type": "wx",                         # 通道类型，当前为个人微信
   "model": "dify",                              # 模型名称，当前对应dify平台
   "single_chat_prefix": [""],                   # 私聊时文本需要包含该前缀才能触发机器人回复
   "single_chat_reply_prefix": "",               # 私聊时自动回复的前缀，用于区分真人
   "group_chat_prefix": ["@bot"],                # 群聊时包含该前缀则会触发机器人回复
-  "group_name_white_list": ["ALL_GROUP"]      # 机器人回复的群名称列表
+  "group_name_white_list": ["ALL_GROUP"]        # 机器人回复的群名称列表
 }
-
 ```
+
 上述示例文件是个人微信对接dify的极简配置，详细配置说明需要查看config.py，注意**不要修改config.py中的值**，config.py只是校验是否是有效的key，最终**生效的配置请在config.json修改**。
 
 ## 运行
@@ -128,14 +174,16 @@ nohup python3 app.py & tail -f nohup.out          # 在后台运行程序并通�
 
 ### 3.Docker部署
 
-暂是没有构建镜像，待更新~
-
+```bash
+cd dify-on-wechat/docker       # 进入docker目录
+docker compose up -d           # 启动docker容器
+docker logs -f dify-on-wechat  # 查看二维码并登录
+```
 
 
 # 开发计划
 
 - [ ] **完善文档：** README文档下班抽空写的，写的比较简单，之后写详细一些
-- [ ] **Docker镜像构建：** 目前只支持源码部署
 - [ ] **企业微信客服通道：** 支持企业微信客服
 - [ ] **测试合并原项目PR：** 原项目有很多比较好的PR没有通过，之后会把一些比较好的feature测试合并进这个仓库
 - [ ] **优化对接Dify：** 目前对接dify的很多代码写的还很潦草，以后逐步优化

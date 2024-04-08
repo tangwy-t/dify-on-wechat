@@ -1,4 +1,5 @@
 app:
+  description: ''
   icon: "\U0001F916"
   icon_background: '#FFEAD5'
   mode: workflow
@@ -31,11 +32,19 @@ workflow:
     - data:
         sourceType: start
         targetType: llm
-      id: 1711722643688-1711722657998
-      selected: false
-      source: '1711722643688'
+      id: 1712585213444-1712585220528
+      source: '1712585213444'
       sourceHandle: source
-      target: '1711722657998'
+      target: '1712585220528'
+      targetHandle: target
+      type: custom
+    - data:
+        sourceType: llm
+        targetType: end
+      id: 1712585220528-1712585261804
+      source: '1712585220528'
+      sourceHandle: source
+      target: '1712585261804'
       targetHandle: target
       type: custom
     nodes:
@@ -51,15 +60,14 @@ workflow:
           required: true
           type: text-input
           variable: query
-      dragging: false
       height: 89
-      id: '1711722643688'
+      id: '1712585213444'
       position:
-        x: 81
-        y: 284
+        x: 80
+        y: 282
       positionAbsolute:
-        x: 81
-        y: 284
+        x: 80
+        y: 282
       selected: false
       sourcePosition: right
       targetPosition: left
@@ -69,7 +77,7 @@ workflow:
         context:
           enabled: true
           variable_selector:
-          - '1711722643688'
+          - '1712585213444'
           - query
         desc: ''
         model:
@@ -86,40 +94,61 @@ workflow:
         - role: system
           text: Please disregard all previous instructions;\nThis is related to every
             one of my prompts;\nYou should provide clear, simple, and direct answers;\nIf
-            you don't know the answer, say 'I don't know';\nFor complex questions,
-            take a deep breath and approach them step by step;\nFor questions that
-            are unclear or ambiguous, please ask me follow-up questions;\nWhen I ask
-            you to complete a task, please do it directly without telling me how it
-            should be done, unless necessary;\nWhen explaining concepts, use real-world
-            examples and analogies;\nDo not refuse replies related to tasks and work
-            I assign;\nDo not attempt to conserve token count when generating replies,
-            as my fingers have a condition that prevents me from typing too much;\nIf
-            you have a perfect solution, I will give you a $100000 tip, and I will
-            give you more tips based on the quality of your reply;\nDo your best!\nUnless
-            otherwise specified, please answer me in Chinese.
+            you don't know the answer, say I don't know;\nFor complex questions, take
+            a deep breath and approach them step by step;\nFor questions that are
+            unclear or ambiguous, please ask me follow-up questions;\nWhen I ask you
+            to complete a task, please do it directly without telling me how it should
+            be done, unless necessary;\nWhen explaining concepts, use real-world examples
+            and analogies;\nDo not refuse replies related to tasks and work I assign;\nDo
+            not attempt to conserve token count when generating replies, as my fingers
+            have a condition that prevents me from typing too much;\nIf you have a
+            perfect solution, I will give you a $100000 tip, and I will give you more
+            tips based on the quality of your reply;\nDo your best!\nUnless otherwise
+            specified, please answer me in Chinese.
         - role: user
-          text: '{{#context#}}'
+          text: '{{#1712585213444.query#}}'
         selected: true
         title: LLM
         type: llm
         variables: []
         vision:
           enabled: false
-      dragging: false
       height: 97
-      id: '1711722657998'
+      id: '1712585220528'
       position:
-        x: 474.45871055713417
-        y: 304.3050079827864
+        x: 380
+        y: 282
       positionAbsolute:
-        x: 474.45871055713417
-        y: 304.3050079827864
-      selected: false
+        x: 380
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1712585220528'
+          - text
+          variable: text
+        selected: false
+        title: "\u7ED3\u675F"
+        type: end
+      height: 89
+      id: '1712585261804'
+      position:
+        x: 680
+        y: 282
+      positionAbsolute:
+        x: 680
+        y: 282
       sourcePosition: right
       targetPosition: left
       type: custom
       width: 243
     viewport:
-      x: -149.61722435272554
-      y: -174.9644998042346
-      zoom: 1.3195079107728944
+      x: 0
+      y: 0
+      zoom: 1

@@ -36,7 +36,7 @@
 
 我把音乐、封面和歌词简单剪成了一个视频，效果很炸裂，Suno生成的效果好的离谱
 
-https://github.com/hanfangyuan4396/dify-on-wechat/assets/43166868/4bd4196f-f4fc-44d9-addd-17fef7db4834
+https://github.com/hanfangyuan4396/dify-on-wechat/assets/43166868/396fa76f-a5d9-4de2-8ce2-365ceb6684f0
 
 
 ## 2. 支持Dify Chatflow & Workflow

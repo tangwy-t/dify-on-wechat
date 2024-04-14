@@ -34,7 +34,9 @@
 ![plugin-suno-1](./docs/images/plugin-suno-1.jpg)
 ![plugin-suno-2](./docs/images/plugin-suno-2.jpg)
 
-[点击试听生成的音乐](./docs/audios/chengdu-disney.mp3)
+我把音乐、封面和歌词简单剪成了一个视频，效果很炸裂，Suno生成的效果好的离谱
+
+https://github.com/hanfangyuan4396/dify-on-wechat/assets/43166868/4bd4196f-f4fc-44d9-addd-17fef7db4834
 
 
 ## 2. 支持Dify Chatflow & Workflow
